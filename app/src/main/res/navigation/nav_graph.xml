@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/pokeList">
+
+    <fragment
+        android:id="@+id/pokeList"
+        android:name="com.example.weekseven.ui.PokeList"
+        android:label="fragment_poke_list"
+        tools:layout="@layout/fragment_poke_list"
+        app:startDestination="@id/action_pokeList_to_fullPoke">
+        <action
+            android:id="@+id/action_pokeList_to_fullPoke"
+            app:destination="@id/fullPoke"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_pokeList_to_uploadImage"
+            app:destination="@id/uploadImage" />
+    </fragment>
+    <fragment
+        android:id="@+id/fullPoke"
+        android:name="com.example.weekseven.ui.FullPoke"
+        android:label="fragment_full_poke"
+        tools:layout="@layout/fragment_full_poke" >
+        <argument
+            android:name="id"
+            app:argType="string"
+            android:defaultValue="1" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="Pokemon" />
+    </fragment>
+    <fragment
+        android:id="@+id/uploadImage"
+        android:name="com.example.weekseven.ui.UploadImage"
+        android:label="fragment_upload_image"
+        tools:layout="@layout/fragment_upload_image" />
+</navigation>
